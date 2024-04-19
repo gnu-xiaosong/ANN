@@ -12,11 +12,11 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = 'pyANN'
-DESCRIPTION = 'My short description for my project.'
-URL = 'https://github.com/me/myproject'
-EMAIL = 'me@example.com'
-AUTHOR = 'Awesome Soul'
+NAME = 'xskj-pyAnn'
+DESCRIPTION = '不依赖于框架的神经网络实现代码'
+URL = 'https://github.com/gnu-xiaosong/ANN'
+EMAIL = '1829134124@qq.com'
+AUTHOR = 'xskj'
 REQUIRES_PYTHON = '>=3.6.0'
 VERSION = '0.1.0'
 

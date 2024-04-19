@@ -105,7 +105,7 @@ class AnnModel:
             # # 初始化: 其列项数应为前一层的a输入个数
             # w = np.zeros((neuron_num, a_in_num), dtype=np.float64)
 
-            #----------------随机初始化----------------------
+            #----------------随机初始化:relu----------------------
             b = np.random.rand(neuron_num, 1).reshape(-1, 1)
             # 初始化: 其列项数应为前一层的a输入个数
             w = np.random.rand(neuron_num, a_in_num) * np.sqrt(2 / a_in_num)
@@ -203,6 +203,7 @@ class AnnModel:
             W = [ W[l] - lr * dJ_dW[l]  for l in range(len(self.layers)) ]
             B = [ B[l] - lr * dJ_dB[l]  for l in range(len(self.layers)) ]
 
+            # print(f"W = {W} b={B}")
             # 添加进数组中
             W_arr.append(W)
             B_arr.append(B)
@@ -323,6 +324,7 @@ class AnnModel:
         dJ_dW_sum = [ np.array(layer_W ) * 0  for layer_W in W]
         dJ_dB_sum = [ np.array(b) * 0 for b in B]
 
+        # print(f"W= {W} B={B}")
 
         for i in range(m):
             """
@@ -382,8 +384,6 @@ class AnnModel:
                     g_z_greadient = self.layers[l - 1][0].g_derivative(z[l - 1])  # 递归关系推导g_z_greadient为列向量
                     dJ_dz = np.transpose(W[l]) @  dJ_dz * g_z_greadient
                     dJ_dZ.append(dJ_dz)
-
-
 
 
         # 计算损失项的偏导数dCost_dW
@@ -559,7 +559,7 @@ class AnnModel:
             }
         """
 
-        predict_y = self.forward(data_set, self.W_opt, self.B_opt)
+        predict_y = self.forward(data_set, self.W_opt, self.B_opt)[0]
 
         return predict_y
 

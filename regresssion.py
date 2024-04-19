@@ -81,8 +81,7 @@ X, Y, X_labels =  data_dispose(data_set)
 X , mu , sigma =Z_score_normalization(X)
 
 
-# 实例化一个神经网络模型
-ann = AnnModel()
+
 
 # 实例化一个神经网络模型
 ann = AnnModel()
@@ -91,15 +90,15 @@ ann = AnnModel()
 ann.Sequential([
     # # 隐藏层1
     Dense(neuron_num=10, active_fun="relu"),
-    Dense(neuron_num=10, active_fun="relu"),
+    # Dense(neuron_num=10, active_fun="relu"),
     #输出层
     Dense(neuron_num=1, active_fun="linear")
 ])
 # 编译模型
 ## 参数定义
-lr=0.001
+lr=0.01
 _lambda=0.1
-epochs = 200000
+epochs = 1000
 validation_split=0.3
 
 ann.compiler(lossType="mean_squared_error", lr=lr, _lambda=_lambda)

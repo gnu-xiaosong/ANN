@@ -41,8 +41,7 @@ X_labels = data_set.columns
 
 
 
-# 实例化一个神经网络模型
-ann = AnnModel()
+
 
 # 实例化一个神经网络模型
 ann = AnnModel()
@@ -50,15 +49,9 @@ ann = AnnModel()
 # 构建一个神经网络
 ann.Sequential([
     # 隐藏层1
-    Dense(neuron_num=10, active_fun="relu"),
-    # 隐藏层2
-    Dense(neuron_num=10, active_fun="relu"),
-    # 隐藏层3
-    Dense(neuron_num=5, active_fun="relu"),
-    Dense(neuron_num=10, active_fun="relu"),
-    # 隐藏层3
-    Dense(neuron_num=5, active_fun="relu"),
-    #输出层
+    Dense(neuron_num=15, active_fun="relu"),
+    # Dense(neuron_num=10, active_fun="relu"),
+    # 输出层
     Dense(neuron_num=1, active_fun="sigmod")
 
 ])
@@ -66,10 +59,12 @@ ann.Sequential([
 ## 参数定义
 lr=0.01
 _lambda=0.1
-epochs = 1000000
+epochs = 1000
 validation_split=0.2
 
 ann.compiler(lossType="sparse_categorical_crossentropy", lr=lr, _lambda=_lambda)
+
+
 # 模型训练
 W_opt, B_opt, min_idx,min_cost = ann.fit(X, Y, epochs=epochs, validation_split=validation_split)
 
@@ -94,7 +89,7 @@ data_set_pre={
     }
 # 模型预测
 predict = ann.predict(data_set_pre)
-# print(f"model predict result: {predict}")
+print(f"model predict result: {predict}")
 
 # 用户自定义函数
 def customize(net):
