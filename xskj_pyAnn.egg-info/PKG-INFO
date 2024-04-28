@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: xskj-pyAnn
+Version: 0.2.0
+Summary: 不依赖于框架的神经网络实现代码
+Home-page: https://github.com/gnu-xiaosong/ANN
+Author: xskj
+Author-email: 1829134124@qq.com
+License: MIT
+Description: 
+        ## "# ANN" 
+        
+        
+        
+        v0.2.0  增加了多分类
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown

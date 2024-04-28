@@ -33,20 +33,20 @@ def softmax(z):
 
        参数：
        z : numpy.ndarray
-           输入的实数向量，形状为 (K,)，其中 K 是类别的数量
+           输入的实数向量，形状为 (K,)，其中 K 是类别的数量 列向量
 
        返回值：
        numpy.ndarray
-           Softmax函数的输出，形状与输入相同，为每个类别的概率分布
+           Softmax函数的输出，形状与输入相同，为每个类别的概率分布 列向量
        """
     # 对输入向量 z 进行数值稳定处理，减去最大值
-    z_stable = z - np.max(z)
+    z_stable = z - np.max(z, axis=0)
 
     # 计算指数部分
     exp_z = np.exp(z_stable)
 
     # 计算分母，即所有指数的和
-    sum_exp_z = np.sum(exp_z)
+    sum_exp_z = np.sum(exp_z, axis=0)
 
     # 计算Softmax函数的输出，即每个类别的概率
     softmax_output = exp_z / sum_exp_z
